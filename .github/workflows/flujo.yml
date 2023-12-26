@@ -1,0 +1,17 @@
+name: CI for DevOps
+
+on:
+    push:
+    pull_request:
+        branches: [ master ]
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: SonarCloud Analysis
+                run: |
+                    chmod +x gradlew
+                    ./gradlew build sonar -Dsonar.token=${{  secrets.PET_CLINIC_DEVOPS }}
