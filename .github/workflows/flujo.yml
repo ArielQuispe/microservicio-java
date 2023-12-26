@@ -12,6 +12,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: SonarCloud Analysis
-                run: |
-                    chmod +x gradlew
-                    ./gradlew build sonar -Dsonar.token=${{  secrets.PET_CLINIC_DEVOPS }}
+              run: |
+                chmod +x gradlew
+                ./gradlew build sonar -Dsonar.token=${{  secrets.PET_CLINIC_DEVOPS }}
