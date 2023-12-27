@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+    id 'jacoco'
     id "org.sonarqube" version "4.2.1.3168"
 }
 
@@ -24,6 +25,19 @@ sonar{
         property "sonar.organization", "arielquispeorg"
         property "sonar.host.url", "https://sonarcloud.io/"
         property "sonar.projectName", "microservicio-java"
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
     }
 }
 
