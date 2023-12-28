@@ -16,7 +16,7 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-          
+
       - name: Upload JAR
         uses: actions/upload-artifact@v2
         with:
@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      -name: Copia de Jar a Raiz de proyecto
+      - name: Copia de Jar a Raiz de proyecto
         run: |
           cp $GITHUB_WORKSPACE/build/libs/microservicio-java-*.jar .
           chmod 777 microservicio-java-*.jar
@@ -48,7 +48,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build --tag arielquispe/microservicio:latest .                  docker images
+          docker build --tag arielquispe/microservicio:latest .
+          docker images
       - name: Push Docker image
         run: |
           docker push arielquispe/microservicio:latest
