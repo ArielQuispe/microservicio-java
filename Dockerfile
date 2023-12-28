@@ -5,7 +5,7 @@ FROM openjdk:11-jre
 EXPOSE 8085
 
 # Agrega compilado de la aplicación
-COPY microservicio-java-*.jar /app/microservicio-java.jar
+COPY testing-web-0.0.1-SNAPSHOT.jar /app/microservicio-java.jar
 
 # Establece el directorio de trabajo
 WORKDIR /app

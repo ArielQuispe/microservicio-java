@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: microservicio-java
-          path: $GITHUB_WORKSPACE/build/libs/microservicio-java-*.jar
+          path: $GITHUB_WORKSPACE/build/libs/testing-web-0.0.1-SNAPSHOT.jar
 
       - name: Code Review -> SonarCloud Analysis
         run: |
@@ -43,8 +43,8 @@ jobs:
 
       - name: Copia de Jar a Raiz de proyecto
         run: |
-          cp $GITHUB_WORKSPACE/build/libs/microservicio-java-*.jar .
-          chmod 777 microservicio-java-*.jar
+          cp $GITHUB_WORKSPACE/build/libs/testing-web-0.0.1-SNAPSHOT.jar .
+          chmod 777 testing-web-0.0.1-SNAPSHOT.jar
           ls -lt
 
       - name: Build Docker image
