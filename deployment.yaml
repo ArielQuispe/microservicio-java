@@ -4,12 +4,13 @@ metadata:
   name: microservicio-deployment
   labels:
     app: microservicio
-  spec:
-    replicas: 1
-    selector:
-      matchLabels:
-        app: microservicio
-    template:
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservicio
+  template:
+    metadata:
       labels:
         app: microservicio
     spec:
