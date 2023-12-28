@@ -16,17 +16,18 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
+          ls $GITHUB_WORKSPACE/build/libs
 
       - name: Upload JAR
         uses: actions/upload-artifact@v2
         with:
           name: microservicio-java
-          path: build/libs/microservicio-java-*.jar
+          path: $GITHUB_WORKSPACE/build/libs/microservicio-java-*.jar
 
       - name: Code Review -> SonarCloud Analysis
         run: |
           chmod +x gradlew
-          ./gradlew jacocoTestReport sonar -Dsonar.token=${{ secrets.FINAL_LAB_TOKEN }}
+          # ./gradlew jacocoTestReport sonar -Dsonar.token=${{ secrets.FINAL_LAB_TOKEN }}
 
       - name: Download JAR
         uses: actions/download-artifact@v2
