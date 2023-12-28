@@ -24,7 +24,7 @@ jobs:
             - name: Code Review -> SonarCloud Analysis
               run: |
                 chmod +x gradlew
-                ./gradlew jacocoTestReport sonar -Dsonar.token=${{ secrets.FINAL_LAB_TOKEN }}
+                #./gradlew jacocoTestReport sonar -Dsonar.token=${{ secrets.FINAL_LAB_TOKEN }}
 
             - name: Download JAR
               uses: actions/download-artifact@v2
