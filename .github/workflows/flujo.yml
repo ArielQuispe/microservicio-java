@@ -11,8 +11,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: SonarCloud Analysis
+            - name: Build
               run: |
                 chmod +x gradlew
-                ./gradlew jacocoTestReport
                 ./gradlew build sonar -Dsonar.token=${{ secrets.FINAL_LAB_TOKEN }}
+            - name: Code Review -> SonarCloud Analysis
+              run: |
+                chmod +x gradlew
+                ./gradlew jacocoTestReport sonar -Dsonar.token=${{ secrets.FINAL_LAB_TOKEN }}

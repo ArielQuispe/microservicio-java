@@ -40,13 +40,17 @@ jacoco {
 }
 
 jacocoTestReport {
-    reports {
-        xml.enabled true
-        csv.enabled false
-        html.destination file("${buildDir}/jacocoHtml")
-    }
+    dependsOn test
+        reports {
+            xml.enabled true
+            csv.enabled false
+            html.destination file("${buildDir}/jacocoHtml")
+        }
 }
 
 test {
+    jacoco{
+        enabled = true
+    }
 	useJUnitPlatform()
 }
